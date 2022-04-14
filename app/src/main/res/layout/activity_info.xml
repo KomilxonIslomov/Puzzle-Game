@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bacground"
+    android:orientation="vertical"
+    tools:context=".ui.InfoActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#330C0C0C"
+        android:orientation="horizontal">
+
+        <TextView
+
+            android:id="@+id/exit_game_info"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:drawableStart="@drawable/ic_baseline_arrow_back_ios_new_24"
+            android:drawableTint="#fff"
+            android:gravity="center|start"
+            android:text="Back"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:textStyle="bold">
+
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/white"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/info"
+            app:lottie_speed="0.8">
+
+        </com.airbnb.lottie.LottieAnimationView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:fontFamily="@font/aclonica"
+            android:gravity="center"
+            android:text="Version 1.0.0"
+            android:textColor="#fff"
+            android:textSize="14sp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1.5"
+            android:fontFamily="@font/aclonica"
+            android:text="   Bu boshqotirma haqida,
+u tasodifiy tartibda raqamlangan kvadrat plitalardan
+ iborat boʻlib, bittasi yoʻq.
+ Jumboq 3x3, 4x4, 5x5 o'lchamlarda mavjud.
+ Agar o'lcham 3×3 plitka bo'lsa, tepadan boshlab
+ sonlar ketma ketligida terilishi kerak oxirgi son 9 bo'ladi.
+ Agar 4x4 plitka bo'lsa, jumboq plitkalar soni 15ta bo'shliqlar
+ soni 1ta bo'ladi va bo'shliq piltka 16soniga tengdir.
+ Boshqotirmaning maqsadi - bo'sh joyni ishlatadigan siljishlarni
+ amalga oshirish orqali plitkalarni tartibli joylashtirishdir."
+            android:textColor="#fff"
+            android:textSize="10sp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:layout_weight="0.7"
+            android:fontFamily="@font/aclonica"
+            android:gravity="bottom|center"
+            android:text="\nIshlab chiquvchi:Islomov Komilxon.\nShikoyatlar hamda takliflar uchun"
+            android:textColor="#EDEDED"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.4"
+            android:background="@drawable/back1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/telegram"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="30dp"
+                android:layout_weight="1"
+                android:drawableStart="@drawable/telegram"
+                android:fontFamily="@font/aclonica"
+                android:gravity="center"
+                android:text="Telegram"
+                android:textColor="@color/white">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/instagram"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:drawableStart="@drawable/instagram"
+                android:fontFamily="@font/aclonica"
+                android:gravity="center"
+                android:text="Instagram"
+                android:textColor="@color/white">
+
+            </TextView>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

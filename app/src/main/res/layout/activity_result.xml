@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bacground"
+    tools:context=".ui.ResultActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#33353535"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/exit_game_result"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:drawableStart="@drawable/ic_baseline_arrow_back_ios_new_24"
+            android:drawableTint="#fff"
+            android:gravity="center|start"
+            android:text="Back"
+            android:textColor="#fff"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/home_btn2"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:drawableEnd="@drawable/home"
+            android:gravity="center|start"
+            android:textColor="#fff">
+
+        </TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/result_btn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:layout_weight="2"
+        android:background="@drawable/back2"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintWidth_percent="0."
+        tools:ignore="NotSibling">
+
+        <TextView
+            android:id="@+id/time_result"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="top"
+            android:layout_marginTop="3dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/timer_24"
+            android:drawableTint="#fff"
+            android:fontFamily="@font/aclonica"
+            android:gravity="top|center"
+            android:text="00:00:00"
+            android:textColor="#fff"
+            android:textSize="12sp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/step_result"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="3dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/step"
+            android:drawableTint="#fff"
+            android:fontFamily="@font/aclonica"
+            android:gravity="top|center"
+            android:text="0"
+            android:textColor="#fff"
+            android:textSize="12sp">
+
+        </TextView>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/name_input"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="44dp"
+        android:background="@drawable/edittext"
+        android:hint="Ismingizni kiriting:"
+        android:paddingStart="20dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/cancel_btn"
+        app:layout_constraintDimensionRatio="1:4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/cancel_btn"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/cancelbutton"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:text="Cancel"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/save_btn"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/save_btn"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/savebutton"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:text="Save"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/cancel_btn"
+        tools:ignore="NotSibling" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

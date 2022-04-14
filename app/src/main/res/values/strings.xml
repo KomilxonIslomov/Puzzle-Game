@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Puzzle Game</string>
+    <string name="night_off">Night off</string>
+    <string name="night_on">Night on</string>
+    <string name="sound_off">Sound off</string>
+    <string name="sound_on">Sound on</string>
+    <string name="Sound_off">SOUND</string>
+    <string name="music_off">Music off</string>
+    <string name="music_on">Music on</string>
+</resources>

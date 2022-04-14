@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bacground"
+    android:orientation="vertical"
+    tools:context=".ui.SettingsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#33353535"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/exit_game"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:drawableStart="@drawable/ic_baseline_arrow_back_ios_new_24"
+            android:drawableTint="#fff"
+            android:gravity="center|start"
+            android:text="Back"
+            android:textColor="#fff"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/info2"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:drawableEnd="@drawable/info2"
+            android:drawableTint="#fff"
+            android:gravity="center|start">
+
+        </TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/back"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:background="#33691C05"
+            android:fontFamily="@font/aclonica"
+            android:gravity="center"
+            android:text="Sound Settings"
+            android:textColor="#fff"
+            android:textSize="16sp">
+
+        </TextView>
+
+        <Switch
+            android:id="@+id/sound_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:background="#33353535"
+            android:text="@string/sound_off"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:background="#33691C05"
+            android:fontFamily="@font/aclonica"
+            android:gravity="center"
+            android:text="Music Settings"
+            android:textColor="#fff"
+            android:textSize="16sp">
+
+        </TextView>
+
+        <Switch
+            android:id="@+id/music_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:background="#33353535"
+            android:text="@string/music_off"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:background="#33691C05"
+            android:fontFamily="@font/aclonica"
+            android:gravity="center"
+            android:text="Theme settings"
+            android:textColor="#fff"
+            android:textSize="16sp">
+
+        </TextView>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/tema"
+            android:checkedButton="@id/theme1"
+            android:orientation="horizontal"
+            android:padding="2dp">
+
+            <RadioButton
+                android:id="@+id/theme1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/back_1"
+                android:button="@null"></RadioButton>
+
+            <RadioButton
+                android:id="@+id/theme2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/back_2"
+                android:button="@null"></RadioButton>
+
+            <RadioButton
+                android:id="@+id/theme3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/back_3"
+                android:button="@null"></RadioButton>
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/clear_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/infobtn"
+        android:text="clear"
+        android:textColor="@color/white" />
+</LinearLayout>

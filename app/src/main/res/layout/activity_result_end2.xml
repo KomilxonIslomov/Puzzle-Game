@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bacground"
+    android:orientation="vertical"
+    tools:context=".ui.ResultEndActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#33353535"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/exit_btn"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:drawableStart="@drawable/ic_baseline_arrow_back_ios_new_24"
+            android:drawableTint="#fff"
+            android:gravity="center|start"
+            android:text="Back"
+            android:textColor="#fff"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/home_btn"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:drawableEnd="@drawable/home"
+            android:gravity="center|start"
+            android:textColor="#fff">
+
+        </TextView>
+
+    </LinearLayout>
+
+</LinearLayout>

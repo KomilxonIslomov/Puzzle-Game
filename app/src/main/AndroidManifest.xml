@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="uz.isystem.game">
+
+    <application
+        android:name=".core.App"
+        android:allowBackup="false"
+        android:icon="@drawable/icons"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/icons"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Game">
+        <activity
+            android:name=".ui.ResultEndActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.InfoActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.SettingsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.OneActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.ResultActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.GameActivity4x4"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.GameActivity3x3"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.GameActivity5x5"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.ChoiseActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bacground"
+    android:orientation="vertical"
+    tools:context=".ui.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/info_btn"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:drawableEnd="@drawable/info2"
+            android:drawableTint="@color/white">
+
+        </TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/white"></LinearLayout>
+
+    <ImageView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2.8">
+
+    </ImageView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:weightSum="5.5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/back1"
+            android:orientation="vertical"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp">
+
+            <TextView
+                android:id="@+id/start_game"
+                android:layout_width="220dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/back2"
+                android:drawableStart="@drawable/ic_baseline_play_arrow_24"
+                android:drawableTint="@color/white"
+                android:fontFamily="@font/aclonica"
+                android:gravity="center"
+                android:text="Play"
+                android:textColor="@color/white"
+                android:textSize="25sp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/result_game"
+                android:layout_width="220dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="45dp"
+                android:layout_marginBottom="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/back2"
+                android:drawableStart="@drawable/ic_baseline_bar_chart_24"
+                android:drawableTint="@color/white"
+                android:fontFamily="@font/aclonica"
+                android:gravity="center"
+                android:text="Result"
+                android:textColor="@color/white"
+                android:textSize="25sp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/settings_game"
+                android:layout_width="220dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="45dp"
+                android:layout_weight="1"
+                android:background="@drawable/back2"
+                android:drawableStart="@drawable/settings_24"
+                android:drawableTint="@color/white"
+                android:fontFamily="@font/aclonica"
+                android:gravity="center"
+                android:text="Settings"
+                android:textColor="@color/white"
+                android:textSize="25sp">
+
+            </TextView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
