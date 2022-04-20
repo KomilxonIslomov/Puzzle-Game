@@ -58,7 +58,6 @@ public class GameActivity5x5 extends BaseActivity {
         setDataToView();
         createTimer();
         setListener();
-        mediaPlayer = MediaPlayer.create(this, R.raw.click3);
 
     }
 
@@ -275,17 +274,28 @@ public class GameActivity5x5 extends BaseActivity {
             step++;
             setStep();
             if (!sound) {
-                mediaPlayer = MediaPlayer.create(this, R.raw.click3);
-                mediaPlayer.start();
+              startMusic();
 
             } else {
-                mediaPlayer.release();
+                stopMusic();
             }
             if (emptyI == 4 && emptyJ == 4) {
                 checkToWin();
             }
         }
 
+    }
+
+    private void startMusic() {
+        if (mediaPlayer != null) {
+            stopMusic();
+        }
+        mediaPlayer = MediaPlayer.create(this, R.raw.click3);
+        mediaPlayer.start();
+    }
+
+    private void stopMusic() {
+        mediaPlayer.release();
     }
 
     public void startMedia() {

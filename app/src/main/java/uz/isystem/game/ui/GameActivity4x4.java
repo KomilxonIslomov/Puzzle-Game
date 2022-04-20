@@ -54,7 +54,6 @@ public class GameActivity4x4 extends BaseActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         loadNumbers();
         loadViews();
-        mediaPlayer = MediaPlayer.create(this, R.raw.click3);
         setDataToView();
         createTimer();
         setListener();
@@ -342,17 +341,28 @@ public class GameActivity4x4 extends BaseActivity {
             step++;
             setStep();
             if (!sound) {
-                mediaPlayer = MediaPlayer.create(this, R.raw.click3);
-                mediaPlayer.start();
+               startMusic();
 
             } else {
-                mediaPlayer.release();
+                stopMusic();
             }
             if (emptyI == 3 && emptyJ == 3) {
                 checkToWin();
             }
         }
 
+    }
+
+    private void startMusic() {
+        if (mediaPlayer != null) {
+            stopMusic();
+        }
+        mediaPlayer = MediaPlayer.create(this, R.raw.click3);
+        mediaPlayer.start();
+    }
+
+    private void stopMusic() {
+        mediaPlayer.release();
     }
 
     public void startPlayer() {
