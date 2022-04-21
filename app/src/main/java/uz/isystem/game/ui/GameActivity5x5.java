@@ -26,9 +26,13 @@ import uz.isystem.game.core.MemoryHelper;
 
 public class GameActivity5x5 extends BaseActivity {
     private final ArrayList<Integer> numbers = new ArrayList<>();
+    private final Button[][] buttons = new Button[5][5];
+    Timer timer;
+    boolean playable;
+    boolean sound;
+    int a = 0;
     private TextView timeView;
     private TextView stepView;
-    private final Button[][] buttons = new Button[5][5];
     private RelativeLayout buttonGroup;
     private int emptyI = 4;
     private ImageView PlayButton;
@@ -40,11 +44,7 @@ public class GameActivity5x5 extends BaseActivity {
     private LinearLayout layout;
     private int emptyJ = 4;
     private int time = 0;
-    Timer timer;
     private int step = 0;
-    boolean playable;
-    boolean sound;
-    int a = 0;
     private MediaPlayer mediaPlayer;
 
     @Override
@@ -59,93 +59,6 @@ public class GameActivity5x5 extends BaseActivity {
         createTimer();
         setListener();
 
-    }
-
-
-    private void Sound() {
-        SoundButton.setImageResource(R.drawable.voleu_24);
-        sound = !sound;
-    }
-
-    private void NoSound() {
-        SoundButton.setImageResource(R.drawable.ic_baseline_volume_off_24);
-        sound = !sound;
-    }
-
-
-    private void Pause() {
-        timer.cancel();
-        for (int i = 0; i < 25; i++) {
-            buttons[i / 5][i % 5].setEnabled(false);
-        }
-        PlayButton.setImageResource(R.drawable.ic_baseline_play_arrow_24);
-        playable = !playable;
-    }
-
-    private void Play() {
-        createTimer();
-        for (int i = 0; i < 25; i++) {
-            buttons[i / 5][i % 5].setEnabled(true);
-
-        }
-        PlayButton.setImageResource(R.drawable.pause);
-        playable = !playable;
-    }
-
-
-    private void createTimer() {
-        timer = null;
-        timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        time++;
-                        setTimeView(time);
-                    }
-                });
-            }
-        }, 1000, 1000);
-    }
-
-    private void setDataToView() {
-        setStep();
-        for (int i = 0; i < 24; i++) {
-            Button button = buttons[i / 5][i % 5];
-            button.setText(String.valueOf(numbers.get(i)));
-            button.setBackgroundResource(R.drawable.rang1_1);
-        }
-        buttons[emptyI][emptyJ].setBackgroundResource(R.drawable.buttonnol);
-        buttons[emptyI][emptyJ].setText("");
-    }
-
-    private void loadViews() {
-        layout = findViewById(R.id.root_layout);
-        HomeButton = findViewById(R.id.home_btn1);
-        ExitButton = findViewById(R.id.exit_btn);
-        ResultatButton = findViewById(R.id.resultat_btn);
-        SoundButton = findViewById(R.id.sound_btn);
-        RestatButton = findViewById(R.id.restat_btn);
-        sound = false;
-        playable = false;
-        PlayButton = findViewById(R.id.Pause_btn);
-        timeView = findViewById(R.id.time_view);
-        stepView = findViewById(R.id.step_view);
-        buttonGroup = findViewById(R.id.btn_group);
-
-        for (int i = 0; i < 25; i++) {
-            buttons[i / 5][i % 5] = (Button) buttonGroup.getChildAt(i);
-        }
-    }
-
-    public void loadNumbers() {
-        numbers.clear();
-        for (int i = 1; i < 25; i++) {
-            numbers.add(i);
-        }
-        Collections.shuffle(numbers);
     }
 
     private void setListener() {
@@ -243,16 +156,88 @@ public class GameActivity5x5 extends BaseActivity {
         });
     }
 
-    private void setStep() {
-        stepView.setText(String.format("%d", step));
-
+    private void Sound() {
+        SoundButton.setImageResource(R.drawable.voleu_24);
+        sound = !sound;
     }
 
-    private void setTimeView(int time) {
-        int hour = time / 3600;
-        int minut = time % 3600 / 60;
-        int second = time % 60;
-        timeView.setText(String.format("%02d:%02d:%02d", hour, minut, second));
+    private void NoSound() {
+        SoundButton.setImageResource(R.drawable.ic_baseline_volume_off_24);
+        sound = !sound;
+    }
+
+    private void Pause() {
+        timer.cancel();
+        for (int i = 0; i < 25; i++) {
+            buttons[i / 5][i % 5].setEnabled(false);
+        }
+        PlayButton.setImageResource(R.drawable.ic_baseline_play_arrow_24);
+        playable = !playable;
+    }
+
+    private void Play() {
+        createTimer();
+        for (int i = 0; i < 25; i++) {
+            buttons[i / 5][i % 5].setEnabled(true);
+
+        }
+        PlayButton.setImageResource(R.drawable.pause);
+        playable = !playable;
+    }
+
+    private void createTimer() {
+        timer = null;
+        timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        time++;
+                        setTimeView(time);
+                    }
+                });
+            }
+        }, 1000, 1000);
+    }
+
+    private void setDataToView() {
+        setStep();
+        for (int i = 0; i < 24; i++) {
+            Button button = buttons[i / 5][i % 5];
+            button.setText(String.valueOf(numbers.get(i)));
+            button.setBackgroundResource(R.drawable.rang1_1);
+        }
+        buttons[emptyI][emptyJ].setBackgroundResource(R.drawable.buttonnol);
+        buttons[emptyI][emptyJ].setText("");
+    }
+
+    private void loadViews() {
+        layout = findViewById(R.id.root_layout);
+        HomeButton = findViewById(R.id.home_btn1);
+        ExitButton = findViewById(R.id.exit_btn);
+        ResultatButton = findViewById(R.id.resultat_btn);
+        SoundButton = findViewById(R.id.sound_btn);
+        RestatButton = findViewById(R.id.restat_btn);
+        sound = false;
+        playable = false;
+        PlayButton = findViewById(R.id.Pause_btn);
+        timeView = findViewById(R.id.time_view);
+        stepView = findViewById(R.id.step_view);
+        buttonGroup = findViewById(R.id.btn_group);
+
+        for (int i = 0; i < 25; i++) {
+            buttons[i / 5][i % 5] = (Button) buttonGroup.getChildAt(i);
+        }
+    }
+
+    public void loadNumbers() {
+        numbers.clear();
+        for (int i = 1; i < 25; i++) {
+            numbers.add(i);
+        }
+        Collections.shuffle(numbers);
     }
 
     public void buttonClick(View view) {
@@ -274,8 +259,7 @@ public class GameActivity5x5 extends BaseActivity {
             step++;
             setStep();
             if (!sound) {
-              startMusic();
-
+                startMusic();
             } else {
                 stopMusic();
             }
@@ -286,16 +270,16 @@ public class GameActivity5x5 extends BaseActivity {
 
     }
 
-    private void startMusic() {
-        if (mediaPlayer != null) {
-            stopMusic();
-        }
-        mediaPlayer = MediaPlayer.create(this, R.raw.click3);
-        mediaPlayer.start();
+    private void setStep() {
+        stepView.setText(String.format("%d", step));
+
     }
 
-    private void stopMusic() {
-        mediaPlayer.release();
+    private void setTimeView(int time) {
+        int hour = time / 3600;
+        int minut = time % 3600 / 60;
+        int second = time % 60;
+        timeView.setText(String.format("%02d:%02d:%02d", hour, minut, second));
     }
 
     public void startMedia() {
@@ -375,4 +359,20 @@ public class GameActivity5x5 extends BaseActivity {
     public void setThemeData() {
         layout.setBackgroundResource(MemoryHelper.getHelper().getThemeOrder());
     }
+
+
+    private void startMusic() {
+        if (mediaPlayer != null) {
+            stopMusic();
+        }
+        mediaPlayer = MediaPlayer.create(this, R.raw.click3);
+        mediaPlayer.start();
+    }
+
+    private void stopMusic() {
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+        }
+    }
+
 }

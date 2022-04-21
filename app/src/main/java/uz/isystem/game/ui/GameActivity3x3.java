@@ -26,9 +26,13 @@ import uz.isystem.game.core.MemoryHelper;
 
 public class GameActivity3x3 extends BaseActivity {
     private final ArrayList<Integer> numbers = new ArrayList<>();
+    private final Button[][] buttons = new Button[3][3];
+    Timer timer;
+    boolean playable;
+    boolean sound;
+    int a = 0;
     private TextView timeView;
     private TextView stepView;
-    private final Button[][] buttons = new Button[3][3];
     private RelativeLayout buttonGroup;
     private int emptyI = 2;
     private ImageView PlayButton;
@@ -40,11 +44,7 @@ public class GameActivity3x3 extends BaseActivity {
     private int emptyJ = 2;
     private int time = 0;
     private LinearLayout layout;
-    Timer timer;
     private int step = 0;
-    boolean playable;
-    boolean sound;
-    int a = 0;
     private MediaPlayer mediaPlayer;
 
     @Override
@@ -59,93 +59,6 @@ public class GameActivity3x3 extends BaseActivity {
         createTimer();
         setListener();
 
-    }
-
-
-    private void Sound() {
-        SoundButton.setImageResource(R.drawable.voleu_24);
-        sound = !sound;
-    }
-
-    private void NoSound() {
-        SoundButton.setImageResource(R.drawable.ic_baseline_volume_off_24);
-        sound = !sound;
-    }
-
-
-    private void Pause() {
-        timer.cancel();
-        for (int i = 0; i < 9; i++) {
-            buttons[i / 3][i % 3].setEnabled(false);
-        }
-        PlayButton.setImageResource(R.drawable.ic_baseline_play_arrow_24);
-        playable = !playable;
-    }
-
-    private void Play() {
-        createTimer();
-        for (int i = 0; i < 9; i++) {
-            buttons[i / 3][i % 3].setEnabled(true);
-
-        }
-        PlayButton.setImageResource(R.drawable.pause);
-        playable = !playable;
-    }
-
-
-    private void createTimer() {
-        timer = null;
-        timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        time++;
-                        setTimeView(time);
-                    }
-                });
-            }
-        }, 1000, 1000);
-    }
-
-    private void setDataToView() {
-        setStep();
-        for (int i = 0; i < 8; i++) {
-            Button button = buttons[i / 3][i % 3];
-            button.setText(String.valueOf(numbers.get(i)));
-            button.setBackgroundResource(R.drawable.rang1_1);
-        }
-        buttons[emptyI][emptyJ].setBackgroundResource(R.drawable.buttonnol);
-        buttons[emptyI][emptyJ].setText("");
-    }
-
-    private void loadViews() {
-        layout = findViewById(R.id.root_layout);
-        HomeButton = findViewById(R.id.home_btn1);
-        ExitButton = findViewById(R.id.exit_btn);
-        ResultatButton = findViewById(R.id.resultat_btn);
-        SoundButton = findViewById(R.id.sound_btn);
-        RestatButton = findViewById(R.id.restat_btn);
-        sound = false;
-        playable = false;
-        PlayButton = findViewById(R.id.Pause_btn);
-        timeView = findViewById(R.id.time_view);
-        stepView = findViewById(R.id.step_view);
-        buttonGroup = findViewById(R.id.btn_group);
-
-        for (int i = 0; i < 9; i++) {
-            buttons[i / 3][i % 3] = (Button) buttonGroup.getChildAt(i);
-        }
-    }
-
-    public void loadNumbers() {
-        numbers.clear();
-        for (int i = 1; i < 9; i++) {
-            numbers.add(i);
-        }
-        Collections.shuffle(numbers);
     }
 
     private void setListener() {
@@ -242,16 +155,88 @@ public class GameActivity3x3 extends BaseActivity {
         });
     }
 
-    private void setStep() {
-        stepView.setText(String.format("%d", step));
-
+    private void Sound() {
+        SoundButton.setImageResource(R.drawable.voleu_24);
+        sound = !sound;
     }
 
-    private void setTimeView(int time) {
-        int hour = time / 3600;
-        int minut = time % 3600 / 60;
-        int second = time % 60;
-        timeView.setText(String.format("%02d:%02d:%02d", hour, minut, second));
+    private void NoSound() {
+        SoundButton.setImageResource(R.drawable.ic_baseline_volume_off_24);
+        sound = !sound;
+    }
+
+    private void Pause() {
+        timer.cancel();
+        for (int i = 0; i < 9; i++) {
+            buttons[i / 3][i % 3].setEnabled(false);
+        }
+        PlayButton.setImageResource(R.drawable.ic_baseline_play_arrow_24);
+        playable = !playable;
+    }
+
+    private void Play() {
+        createTimer();
+        for (int i = 0; i < 9; i++) {
+            buttons[i / 3][i % 3].setEnabled(true);
+
+        }
+        PlayButton.setImageResource(R.drawable.pause);
+        playable = !playable;
+    }
+
+    private void createTimer() {
+        timer = null;
+        timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        time++;
+                        setTimeView(time);
+                    }
+                });
+            }
+        }, 1000, 1000);
+    }
+
+    private void setDataToView() {
+        setStep();
+        for (int i = 0; i < 8; i++) {
+            Button button = buttons[i / 3][i % 3];
+            button.setText(String.valueOf(numbers.get(i)));
+            button.setBackgroundResource(R.drawable.rang1_1);
+        }
+        buttons[emptyI][emptyJ].setBackgroundResource(R.drawable.buttonnol);
+        buttons[emptyI][emptyJ].setText("");
+    }
+
+    private void loadViews() {
+        layout = findViewById(R.id.root_layout);
+        HomeButton = findViewById(R.id.home_btn1);
+        ExitButton = findViewById(R.id.exit_btn);
+        ResultatButton = findViewById(R.id.resultat_btn);
+        SoundButton = findViewById(R.id.sound_btn);
+        RestatButton = findViewById(R.id.restat_btn);
+        sound = false;
+        playable = false;
+        PlayButton = findViewById(R.id.Pause_btn);
+        timeView = findViewById(R.id.time_view);
+        stepView = findViewById(R.id.step_view);
+        buttonGroup = findViewById(R.id.btn_group);
+
+        for (int i = 0; i < 9; i++) {
+            buttons[i / 3][i % 3] = (Button) buttonGroup.getChildAt(i);
+        }
+    }
+
+    public void loadNumbers() {
+        numbers.clear();
+        for (int i = 1; i < 9; i++) {
+            numbers.add(i);
+        }
+        Collections.shuffle(numbers);
     }
 
     public void buttonClick(View view) {
@@ -273,8 +258,7 @@ public class GameActivity3x3 extends BaseActivity {
             step++;
             setStep();
             if (!sound) {
-               startMusic();
-
+                startMusic();
             } else {
                 stopMusic();
             }
@@ -283,6 +267,33 @@ public class GameActivity3x3 extends BaseActivity {
             }
         }
 
+    }
+
+    private void startMusic() {
+        if (mediaPlayer != null) {
+            stopMusic();
+        }
+        mediaPlayer = MediaPlayer.create(this, R.raw.click3);
+        mediaPlayer.start();
+    }
+
+    private void stopMusic() {
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+        }
+
+    }
+
+    private void setStep() {
+        stepView.setText(String.format("%d", step));
+
+    }
+
+    private void setTimeView(int time) {
+        int hour = time / 3600;
+        int minut = time % 3600 / 60;
+        int second = time % 60;
+        timeView.setText(String.format("%02d:%02d:%02d", hour, minut, second));
     }
 
     private void checkToWin() {
@@ -297,7 +308,6 @@ public class GameActivity3x3 extends BaseActivity {
         if (isWin) {
             Animatoo.animateZoom(GameActivity3x3.this);
             showAlert();
-            finish();
             Animatoo.animateZoom(GameActivity3x3.this);
 
         }
@@ -334,18 +344,6 @@ public class GameActivity3x3 extends BaseActivity {
 
         });
         builder.create().show();
-    }
-
-    private void startMusic() {
-        if (mediaPlayer != null) {
-            stopMusic();
-        }
-        mediaPlayer = MediaPlayer.create(this, R.raw.click3);
-        mediaPlayer.start();
-    }
-
-    private void stopMusic() {
-        mediaPlayer.release();
     }
 
 
